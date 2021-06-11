@@ -12,5 +12,10 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
+Route::get('/inquiries_index', ['uses' => 'InquiryController@index', 'as' => 'inquiries.index']);
+Route::post ( '/inquiries', 'InquiryController@storeInquiry' );
+Route::get ( '/inquiries', 'InquiryController@readInquiries' );
+Route::post ( '/inquiries/{id}', 'InquiryController@deleteInquiry' );
+Route::post ( '/edit_inquiry/{id}', 'InquiryController@editInquiry' );
